@@ -1,0 +1,49 @@
+<ng2-slim-loading-bar color="blue"></ng2-slim-loading-bar>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" routerLink="/" routerLinkActive="active">Angular Contacts</a>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a routerLink="/" class="nav-link" routerLinkActive="active">
+            Index
+          </a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/create" class="nav-link" routerLinkActive="active">
+          New
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="card">
+    <div class="card-header">
+        <h3>Contact</h3>
+    </div>
+    <div class="card-body">
+        <form [formGroup]="angForm" novalidate>
+            <div class="form-group">
+                <label class="col-md-4">Name:</label>
+                <input type="text" class="form-control" formControlName="person_name" #person_name [(ngModel)] = "contact.person_name" disabled/>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4">Email: </label>
+                <input type="text" class="form-control" formControlName="contact_name" #contact_name [(ngModel)] = "contact.contact_name" disabled/>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4">Phone Number: </label>
+                <input type="text" class="form-control" formControlName="contact_gst_number" #contact_gst_number [(ngModel)] = "contact.contact_gst_number"  disabled/>
+            </div>
+        </form>
+    </div>
+    <div class="card-footer">
+        <div class="form-group float-right">
+            <button (click)="updateContact()"
+            class="btn btn-primary">EDIT</button>
+            &nbsp;&nbsp;
+            <button (click)="deleteContact()"
+            class="btn btn-danger">DELETE</button>
+        </div>
+    </div>
+</div>

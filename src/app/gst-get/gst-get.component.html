@@ -1,0 +1,52 @@
+<ng2-slim-loading-bar color="blue"></ng2-slim-loading-bar>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" routerLink="/" routerLinkActive="active">Angular Contacts</a>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a routerLink="/" class="nav-link" routerLinkActive="active">
+            Index
+          </a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/create" class="nav-link" routerLinkActive="active">
+          New
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<h1>Contact List</h1>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <td>#</td>
+        <td>Name</td>
+        <td>Email</td>
+        <td>Phone Number</td>
+        <td></td>
+    </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngIf = "!isFound">
+            <td colspan="4" style="text-align: center"><h1>No Contact Found</h1></td>
+        </tr>
+        <tr *ngFor="let contact of contacts; index as i">
+            <td>{{ i+1 }}</td>
+            <td>{{ contact.person_name }}</td>
+            <td>{{ contact.contact_name }}</td>
+            <td>{{ contact.contact_gst_number }}</td>
+            <td>
+                <div class="float-right">
+                    <a [routerLink]="['view', contact._id]" class="btn btn-primary">Details</a>
+                    &nbsp;
+                    <a [routerLink]="['edit', contact._id]" class="btn btn-primary">Edit</a>
+                    &nbsp;
+                    <a (click) = "deleteContact(contact._id)" class="btn btn-danger">Delete</a>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
