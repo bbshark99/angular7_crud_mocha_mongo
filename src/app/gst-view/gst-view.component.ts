@@ -31,9 +31,10 @@ export class GstViewComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       console.log(params['id']);
-      this.contactService.editContact(params['id']).subscribe(res => {
+      this.contactService.editContact(params['id'])
+        .subscribe(res => {
           this.contact = res;
-      });
+        });
     });
   }
 

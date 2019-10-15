@@ -5,7 +5,8 @@ import { NavigationCancel,
         NavigationEnd,
         NavigationError,
         NavigationStart,
-        Router } from '@angular/router';
+        Router
+      } from '@angular/router';
 
 @Component({
   selector: 'app-root',

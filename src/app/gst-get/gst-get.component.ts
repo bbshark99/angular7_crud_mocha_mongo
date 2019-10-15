@@ -15,7 +15,6 @@ export class GstGetComponent implements OnInit {
   constructor(private contactService: ContactService) { }
 
   ngOnInit() {
-    console.log("ngOnint");
     this.contactService
       .getContacts()
       .subscribe((data: Contact[]) => {
